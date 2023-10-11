@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title> Todays Weather </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-item>
+      <ion-label position="floating">City</ion-label>
+      <ion-input
+        aria-labelledby="city"
+        [(ngModel)]="city"
+        placeholder="Enter city"
+      ></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="searchWeather()"
+      >Search Weather</ion-button
+    >
+
+    <!-- Display weather information -->
+    <div *ngIf="weatherData">
+      <ion-card>
+        <ion-card-header> {{ weatherData.name }} </ion-card-header>
+        <ion-card-content>
+          <ion-icon name="partly-sunny-outline"></ion-icon>
+          <p>{{ weatherData.weather[0].description }}</p>
+          <h1>{{ weatherData.main.temp }}°C</h1>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Display error message -->
+    <ion-text color="danger" *ngIf="error">{{ error }}</ion-text>
+  </div>
+</ion-content>
