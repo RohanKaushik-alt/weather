@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Platform } from '@ionic/angular';
-import { WeatherService } from 'src/services/weather.service';
+import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-current-weather',
